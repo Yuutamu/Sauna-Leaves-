@@ -1,8 +1,9 @@
+# MEMO:環境変数が未入力の場合、デバックしやすくするために’未取得’と表示させる
 default: &default
   adapter: "postgresql"
   encoding: "unicode"
-  database: "<%= ENV.fetch("POSTGRES_DB") { "hello" } %>"
-  username: "<%= ENV.fetch("POSTGRES_USER") { "hello" } %>"
+  database: "<%= ENV.fetch("POSTGRES_DB") { "未取得" } %>"
+  username: "<%= ENV.fetch("POSTGRES_USER") { "未取得" } %>"
   password: "<%= ENV.fetch("POSTGRES_PASSWORD") { "password" } %>"
   host: "<%= ENV.fetch("POSTGRES_HOST") { "postgres" } %>"
   port: "<%= ENV.fetch("POSTGRES_PORT") { 5432 } %>"
@@ -11,12 +12,12 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DB") { "hello" } %>_development
+  database: <%= ENV.fetch("POSTGRES_DB") { "未取得" } %>_development
 
 test:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DB") { "hello" } %>_test
+  database: <%= ENV.fetch("POSTGRES_DB") { "未取得" } %>_test
 
 production:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DB") { "hello" } %>_production
+  database: <%= ENV.fetch("POSTGRES_DB") { "未取得" } %>_production
