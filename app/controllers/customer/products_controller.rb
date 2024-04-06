@@ -5,6 +5,7 @@ class Customer::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @cart_item = CartItem.new # MEMO:商品詳細ページにカート追加ボタンを設置
   end
 
   private
