@@ -91,9 +91,7 @@
   </div>
 
   <%# MEMO:テキストのコントラスト比が強すぎるので優しめにする必要あり %>
-  <%
-=begin%>
- <div class="flex xl:justify-center overflow-scroll">
+  <div class="flex xl:justify-center overflow-scroll">
     <% @products.each do |product| %>
       <div class="pl-6 md:pl-6 pt-6">
         <div class="w-[166px] h-[270px] md:w-[260px] md:h-[360px] bg-gray-100 shadow-md rounded-lg">
@@ -115,8 +113,6 @@
       </div>
     <% end %>
   </div> 
-<%
-=end%>
 
 <!-- 商品 buttun - start -->
   <div class="flex justify-center mt-2">
