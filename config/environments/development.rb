@@ -41,6 +41,18 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # 開発環境でメールサーバーを設定する
+  config.action_mailer.default_url_options = {  host: 'localhost', port: 8000 }
+  config.action_mailer.delivery_method = :smtp # メールの送信方式を SMTP
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    port: 587,
+    user_name: Rails.application.credentials.dig(:gmail, :email),
+    password: Rails.application.credentials.dig(:gmail, :app_password),
+    authentication: :login
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
