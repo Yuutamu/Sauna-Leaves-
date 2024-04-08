@@ -9,23 +9,24 @@ class Customer::CartItemsController < ApplicationController
 
   def create
     increase_or_create(params[:cart_item][:product_id])
-    redirect_to cart_items_path, notice: 'Successfully added product to your cart'
+    redirect_to cart_items_path, notice: 'カートに商品を追加しました。'
   end
 
-  # MEMO: incrementメソッドはRailsに搭載されているもの（参照：https://github.com/rails/rails/blob/984c3ef2775781d47efa9f541ce570daa2434a80/activerecord/lib/active_record/persistence.rb#L845）
+  # MEMO：通常CRUD処理以外のメソッド名。一般的な動詞にした
   def increase
-    @cart_items.increment!(:quantity, 1)
-    redirect_to request.referer, notice: 'Successfully updated your cart'
+    @cart_item.increment!(:quantity, 1)
+    redirect_to request.referer, notice: 'カート商品を更新しました。'
   end
 
+  # MEMO：通常CRUD処理以外のメソッド名。一般的な動詞にした
   def decrease
     decrease_or_destroy(@cart_item)
-    redirect_to request.referer, notice: 'Successfully updated your cart'
+    redirect_to request.referer, notice: 'カート商品を更新しました。'
   end
 
   def destroy
     @cart_item.destroy
-    redirect_to request.referer, notice: 'Successfully deleted one cart item'
+    redirect_to request.referer, notice: 'カート商品を削除しました。'
   end
 
   private
@@ -34,15 +35,18 @@ class Customer::CartItemsController < ApplicationController
     @cart_item = current_customer.cart_items.find(params[:id])
   end
 
+  # MEMO：増加の際はincrement | 新規作成時はcreate
+  # MEMO: incrementメソッドはRailsに搭載されているもの（参照：https://github.com/rails/rails/blob/984c3ef2775781d47efa9f541ce570daa2434a80/activerecord/lib/active_record/persistence.rb#L845）
   def increase_or_create(product_id)
     cart_item = current_customer.cart_items.find_by(product_id:)
     if cart_item
       cart_item.increment!(:quantity, 1)
     else
-      current_customer.cart_items.build(product_id:).save
+      current_customer.cart_items.build(product_id:).save # MEMO：createにしないことでdebugしやすくさせる
     end
   end
 
+  # MEMO：減少の際はdecrement | カート削除時はdestroy
   def decrease_or_destroy(cart_item)
     if cart_item.quantity > 1
       cart_item.decrement!(:quantity, 1)

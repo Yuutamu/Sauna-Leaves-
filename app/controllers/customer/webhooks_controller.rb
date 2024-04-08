@@ -49,7 +49,7 @@ class Customer::WebhooksController < ApplicationController
       customer.cart_items.destroy_all # MEMO：カート商品を全て削除
 
       # 注文確認メールの送信（参考：https://railsguides.jp/active_job_basics.html#action-mailer）
-      # deliver_laterメソッド メールを非同期処理
+      # deliver_later メールを非同期処理
       OrderMailer.complete(email: session.customer_details.email).deliver_later
 
       redirect_to session.success_url
