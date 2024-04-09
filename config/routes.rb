@@ -53,7 +53,7 @@ Rails.application.routes.draw do
 
   # 静的なページ
   get  'law_pages/privacy_policy'
-  get  'law_pages/tokusyo'
+  get  'law_pages/tokusho'
   get  'law_pages/terms'
 
   get '/up/', to: 'up#index', as: :up
