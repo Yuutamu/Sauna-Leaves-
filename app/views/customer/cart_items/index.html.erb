@@ -15,60 +15,55 @@
       <% end %>
     </div>
   </div>
-
 <% else %>
 
- <div class="justify-center">
+  <div class="justify-center md:flex">
+    <% @cart_items.each do |cart_item| %>
+      <div class="mx-10 md:w-5/12 my-4[]">
+        <div class="px-6 bg-gray-50 border border-gray-200 rounded-lg">
+          <div class="pt-4 pb-2">
+            <div class="text-lg font-['Noto Sans JP'] font-semibold text-dark-green text-center"><%= cart_item.product.name %></div>
+          </div>
 
-    <%# memo -start- %>
-        <% @cart_items.each do |cart_item| %>
-          <div class="mx-10 md:w-5/12 my-4">
-            <div class="px-6 bg-gray-50 border border-gray-200 rounded-lg">
-              <div class="pt-4 pb-2">
-                <div class="text-lg font-['Noto Sans JP'] font-semibold text-dark-green text-center"><%= cart_item.product.name %></div>
-              </div>
+          <div class="w-full h-[2px] bg-light-green">
+          </div>
 
-              <div class="w-full h-[2px] bg-light-green">
-              </div>
-
-              <div class="flex justify-between my-6">
-                <span class="font-semibold font-['Noto Sans JP'] text-base text-dark-green">金額</span>
-                <span class="text-base font-['Noto Sans'] font-semibold text-dark-green"><%= number_to_currency(cart_item.product.price, unit: "¥", strip_insignificant_zeros: true) %></span>
-              </div>
-              <div class="flex justify-between pb-4">
-                <span class="font-semibold font-['Noto Sans JP'] text-base text-dark-green">数量</span>
-                <div class="flex">
-                  <%= link_to decrease_cart_item_path(cart_item), data: { "turbo-method": :patch }, class: "flex justify-center" do %>
-                    <svg class="fill-current text-emerald-600 w-3" viewBox="0 0 448 512">
-                      <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-                    </svg>
-                  <% end %>
-                  <span class="mx-5 text-base font-['Noto Sans'] font-semibold text-dark-green"><%= cart_item.quantity %></span>
-                  <% unless cart_item.quantity >= cart_item.product.stock %>
-                    <%= link_to increase_cart_item_path(cart_item), data: { "turbo-method": :patch }, class: "flex justify-center" do %>
-                      <svg class="fill-current text-green-600 w-3" viewBox="0 0 448 512">
-                        <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-                      </svg>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-
-              <div class="w-full h-[2px] bg-light-green">
-              </div>
-
-              <div class="flex justify-between my-6">
-                <span class="font-semibold font-['Noto Sans JP'] text-lg text-dark-green">小計</span>
-                <span class="text-lg font-['Noto Sans'] font-semibold text-dark-green"><%= number_to_currency(cart_item.line_total, unit: "¥", strip_insignificant_zeros: true) %></span>
-              </div>
+          <div class="flex justify-between my-6">
+            <span class="font-semibold font-['Noto Sans JP'] text-base text-dark-green">金額</span>
+            <span class="text-base font-['Noto Sans'] font-semibold text-dark-green"><%= number_to_currency(cart_item.product.price, unit: "¥", strip_insignificant_zeros: true) %></span>
+          </div>
+          <div class="flex justify-between pb-4">
+            <span class="font-semibold font-['Noto Sans JP'] text-base text-dark-green">数量</span>
+            <div class="flex">
+              <%= link_to decrease_cart_item_path(cart_item), data: { "turbo-method": :patch }, class: "flex justify-center" do %>
+                <svg class="fill-current text-emerald-600 w-3" viewBox="0 0 448 512">
+                  <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                </svg>
+              <% end %>
+              <span class="mx-5 text-base font-['Noto Sans'] font-semibold text-dark-green"><%= cart_item.quantity %></span>
+              <% unless cart_item.quantity >= cart_item.product.stock %>
+                <%= link_to increase_cart_item_path(cart_item), data: { "turbo-method": :patch }, class: "flex justify-center" do %>
+                  <svg class="fill-current text-green-600 w-3" viewBox="0 0 448 512">
+                    <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
+                  </svg>
+                <% end %>
+              <% end %>
             </div>
           </div>
-        <% end %>
-      
-    <%# memo -end- %>
 
-    <%# Cart Summary %>
-    <div class="my-10 md:w-6/12 bg-gray-50">
+          <div class="w-full h-[2px] bg-light-green">
+          </div>
+
+          <div class="flex justify-between my-6">
+            <span class="font-semibold font-['Noto Sans JP'] text-lg text-dark-green">小計</span>
+            <span class="text-lg font-['Noto Sans'] font-semibold text-dark-green"><%= number_to_currency(cart_item.line_total, unit: "¥", strip_insignificant_zeros: true) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <%# Cart Summary -start- %>
+    <div class="my-10 md:my-0 md:w-6/12 bg-gray-50">
       <div class="mx-10 justify-center">
         <h1 class="font-['Noto Sans'] font-semibold text-2xl pb-6 pt-6 text-left text-dark-green">
           Cart Summary
@@ -86,5 +81,6 @@
         <% end %>
       </div>
     </div>
+    <%# Cart Summary -end- %>
   </div>
 <% end %>
