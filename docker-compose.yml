@@ -48,29 +48,31 @@ services:
           cpus: "${DOCKER_POSTGRES_CPUS:-0}"
           memory: "${DOCKER_POSTGRES_MEMORY:-0}"
     environment:
-      POSTGRES_USER: "${POSTGRES_USER}"
-      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
-      POSTGRES_DB: "${POSTGRES_DB}"
-    image: "postgres:16.2-bookworm"
+      POSTGRES_USER: "${POSTGRES_USER}" # MEMO: vi側から設定
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}" # MEMO: vi側から設定
+      POSTGRES_DB: "${POSTGRES_DB}" # MEMO: vi側から設定
+    image: "postgres:16.1-bookworm"
     profiles: ["postgres"]
     restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     stop_grace_period: "3s"
     volumes:
       - "postgres:/var/lib/postgresql/data"
 
+  # redis:7.0.5-bullseye Redis を立てるためのコンテナ
   redis:
     deploy:
       resources:
         limits:
           cpus: "${DOCKER_REDIS_CPUS:-0}"
           memory: "${DOCKER_REDIS_MEMORY:-0}"
-    image: "redis:7.2.4-bookworm"
+    image: "redis:7.2.3-bookworm"
     profiles: ["redis"]
     restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     stop_grace_period: "3s"
     volumes:
       - "redis:/data"
 
+  # Rails のアプリケーションを実行するためのコンテナ
   web:
     <<: *default-app
     deploy:
@@ -88,6 +90,7 @@ services:
       - "${DOCKER_WEB_PORT_FORWARD:-127.0.0.1:8000}:${PORT:-8000}"
     profiles: ["web"]
 
+  # SideKiq を用いて非同期処理を実行するためのコンテナ
   worker:
     <<: *default-app
     command: "bundle exec sidekiq -C config/sidekiq.yml"
@@ -99,13 +102,24 @@ services:
           memory: "${DOCKER_WORKER_MEMORY:-0}"
     profiles: ["worker"]
 
+  # JavaScript のビルド・変更の監視をしてくれるコンテナ
+  # ビルドツールとして esbuild
   js:
     <<: *default-assets
     command: "yarn build"
 
+  # CSS のビルド・変更の監視をしてくれるコンテナ
   css:
     <<: *default-assets
     command: "yarn build:css"
+  
+  # TODO:Stripe CLI 起動せずに決済可能にする
+  # TODO:Stripe 本番利用申請が通ったあとにVIエディタからcredentialsに加筆する
+  stripe:
+    image: stripe/stripe-cli:latest
+    command: "listen --forward-to localhost:8000/webhooks --api-key ${STRIPE_API_KEY}"
+    extra_hosts:
+    - "localhost:${PRIVATE_IP_ADDRESS}"
 
 volumes:
   postgres: {}

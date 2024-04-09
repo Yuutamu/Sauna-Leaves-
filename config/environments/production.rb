@@ -89,8 +89,8 @@ Rails.application.configure do
   # ]
   # MEMO:DNS攻撃対策の記述を変更 (Host Block されてしまうので)
   config.hosts << "localhost:10000"
-  config.hosts << "saunaleaves.onrender.com"
-  config.hosts << /\.saunaleaves\.onrender\.com\z/
+  config.hosts << "sauna-leaves.onrender.com"
+  config.hosts << /\.sauna-leaves\.onrender\.com\z/
 
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }

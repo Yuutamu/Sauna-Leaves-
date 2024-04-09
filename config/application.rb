@@ -56,7 +56,7 @@ module Hello
 
     # MEMO：デプロイするサービス（Render）のホストを追加する
     # MEMO: 正規表現を使ってsaunaleaves.onrender.comドメインの全てのサブドメインを許可するように設定
-    config.hosts << 'saunaleaves.onrender.com'
-    config.hosts << /\.saunaleaves\.onrender\.com\z/
+    config.hosts << 'sauna-leaves.onrender.com'
+    config.hosts << /\.sauna-leaves\.onrender\.com\z/
   end
 end
