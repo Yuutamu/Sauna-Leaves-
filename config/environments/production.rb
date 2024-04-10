@@ -35,6 +35,13 @@ Rails.application.configure do
   # MEMO:本番環境エラー対応のために false→true に変更
   config.assets.compile = true
 
+  # MEMO：アセットプリコンパイルの設定を追加
+  # アセットプリコンパイル時に圧縮する
+  config.assets.css_compressor = :sass
+  config.assets.js_compressor = :uglifier
+  # アセットのディレクトリ設定
+  config.assets.digest = true
+
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 

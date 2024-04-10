@@ -28,6 +28,12 @@ module Hello
       namespace: 'cache'
     }
 
+    # MEMO：アセットプリコンパイルの設定
+    # アセットパイプラインを有効にする
+    config.assets.enabled = true
+    # アセットのプリコンパイルで生成されるファイルの保存先ディレクトリ
+    config.assets.prefix = '/assets'
+
     # MEMO: Sidekiq 設定
     # Set Sidekiq as the back-end for Active Job.
     config.active_job.queue_adapter = :sidekiq
