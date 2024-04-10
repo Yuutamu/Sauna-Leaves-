@@ -1,5 +1,6 @@
+# ベースイメージと基本設定
 FROM ruby:3.3.0-slim-bookworm AS assets
-LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
+# LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
 
 WORKDIR /app
 
@@ -20,6 +21,7 @@ RUN bash -c "set -o pipefail && apt-get update \
 
 USER ruby
 
+# 依存パッケージのインストール
 COPY --chown=ruby:ruby Gemfile* ./
 RUN bundle install
 
@@ -38,12 +40,17 @@ COPY --chown=ruby:ruby . .
 # RUN if [ "${RAILS_ENV}" != "development" ]; then \
 #   SECRET_KEY_BASE_DUMMY=1 rails assets:precompile; fi
 
+# アセットのプリコンパイル
+RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
+ && yarn cache clean \
+ && rm -rf node_modules tmp/cache
+
 CMD ["bash"]
 
 ###############################################################################
 
 FROM ruby:3.3.0-slim-bookworm AS app
-LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
+# LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
 
 WORKDIR /app
 
