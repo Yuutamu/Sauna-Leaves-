@@ -42,7 +42,8 @@ COPY --chown=ruby:ruby . .
 #   SECRET_KEY_BASE_DUMMY=1 rails assets:precompile; fi
 
 # プリコンパイルの実行
-RUN rails assets:precompile
+ENV RAILS_MASTER_KEY=548b47f49851280a19e31c5f169b688a
+RUN RAILS_MASTER_KEY=$RAILS_MASTER_KEY rails assets:precompile
 
 CMD ["bash"]
 
