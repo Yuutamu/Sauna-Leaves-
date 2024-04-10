@@ -28,6 +28,7 @@ RUN bundle install
 COPY --chown=ruby:ruby package.json *yarn* ./
 RUN yarn install
 
+# アセットのプリコンパイルを実行
 ARG RAILS_ENV="production"
 ARG NODE_ENV="production"
 ENV RAILS_ENV="${RAILS_ENV}" \
@@ -40,10 +41,8 @@ COPY --chown=ruby:ruby . .
 # RUN if [ "${RAILS_ENV}" != "development" ]; then \
 #   SECRET_KEY_BASE_DUMMY=1 rails assets:precompile; fi
 
-# アセットのプリコンパイル
-RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
- && yarn cache clean \
- && rm -rf node_modules tmp/cache
+# プリコンパイルの実行
+RUN rails assets:precompile
 
 CMD ["bash"]
 
