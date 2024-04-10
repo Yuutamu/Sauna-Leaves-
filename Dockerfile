@@ -41,7 +41,7 @@ COPY --chown=ruby:ruby . .
 # RUN if [ "${RAILS_ENV}" != "development" ]; then \
 #   SECRET_KEY_BASE_DUMMY=1 rails assets:precompile; fi
 
-RUN SECRET_KEY_BASE_DUMMY=1 rails assets:precompile; fi
+RUN SECRET_KEY_BASE_DUMMY=1 rails assets:precompile
 
 # プリコンパイルの実行
 # ENV RAILS_MASTER_KEY=548b47f49851280a19e31c5f169b688a
