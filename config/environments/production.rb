@@ -16,9 +16,6 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # MEMO: config/master.key, ENV["RAILS_MASTER_KEY"] などを有効にすることに関して 
-  # MEMO: master_key の指定漏れを防ぐために以下を有効化した。
-  
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   config.require_master_key = true
@@ -28,10 +25,6 @@ Rails.application.configure do
   # MEMO: ”RAILS_SERVE_STATIC_FILES”にターミナルから変数代入済み（参考：https://qiita.com/aiandrox/items/408724ab8a4482fb5873）
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
-  # Compress CSS using a preprocessor.
-  # config.assets.css_compressor = :sass
-
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
   # MEMO:本番環境エラー対応のために false→true に変更
   config.assets.compile = true
 
