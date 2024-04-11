@@ -38,7 +38,7 @@ Rails.application.configure do
   # MEMO：アセットプリコンパイルの設定を追加
   # アセットプリコンパイル時に圧縮する
   # config.assets.css_compressor = :sass # Sassは利用しない
-  config.assets.js_compressor = :uglifier
+  # config.assets.js_compressor = :uglifier # uglifierは利用しない
   # アセットのディレクトリ設定
   config.assets.digest = true
 
