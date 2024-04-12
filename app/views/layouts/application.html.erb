@@ -9,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="テントサウナのレンタルサービス Sauna Leaves (サウナリーブス)">
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%# アセットプリコンパイルされたファイルを適用させる %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%# Generated with: https://realfavicongenerator.net/ %>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
