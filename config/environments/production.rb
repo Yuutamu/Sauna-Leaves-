@@ -23,7 +23,9 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX likely already handle this.
   # MEMO: ”RAILS_SERVE_STATIC_FILES”にターミナルから変数代入済み（参考：https://qiita.com/aiandrox/items/408724ab8a4482fb5873）
-  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
+  # config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
+  # MEMO：可能であれば、直接true を入れたくない
+  config.public_file_server_enabled = true
 
   # MEMO:本番環境エラー対応のために false→true に変更
   config.assets.compile = true
