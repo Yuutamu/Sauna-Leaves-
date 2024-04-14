@@ -44,8 +44,8 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
-  # MEMO: アップロードされたファイルの保存先を local→render に変更（参照：https://github.com/johnbeynon/render-activestorage）
-  config.active_storage.service = :render
+  # MEMO: アップロードされたファイルの保存先を local→render に戻した（参照：https://github.com/johnbeynon/render-activestorage）
+  config.active_storage.service = :local
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
   # Can be used together with config.force_ssl for Strict-Transport-Security and secure cookies.
