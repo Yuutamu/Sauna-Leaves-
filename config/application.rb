@@ -21,7 +21,7 @@ module Hello
                                          .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
                                          .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
-    # MEMO: Redis 設定
+    # MEMO: Redis キャッシュ設定
     # Set Redis as the back-end for the cache.
     config.cache_store = :redis_cache_store, {
       url: ENV.fetch('REDIS_URL') { 'redis://redis:6379/1' },
