@@ -24,7 +24,7 @@ class Admin::ProductsController < ApplicationController
   def edit; end
 
   def update
-    if @product.update(@product)
+    if @product.update(product_params)
       redirect_to admin_product_path(@product)
     else
       render :edit
@@ -38,6 +38,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock, :image)
+    params.require(:product).permit(:name, :description, :price, :stock, :image) # MEMO:ストロングパラメータ
   end
 end
