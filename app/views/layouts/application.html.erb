@@ -26,15 +26,12 @@
     <meta name="theme-color" content="#ffffff">
   </head>
 
-<%# TODO: sidekiq表示させてるのもあって、ヘッダーが高めに設定されているので、本番環境では調整すべき（本番環境と開発環境のUIを変えることができたら嬉しい） %>
-
   <body>
     <!-- header - start -->
     <%# MEMO:header高さ調整のため、Y軸のパッディングを削除 py-4 md:py-8%>
     <header class="flex items-center justify-between pt-2 pb-2 md:py-4 px-2 md:px-6 bg-white">
 
       <!-- logo - start -->
-      <!-- MEMO: lg表示の際にlogoをデフォルトの大きさにしても良いかも -->
       <div class="items-center" aria-label="logo">
         <%= link_to root_path do %>
           <svg width="150" height="40" viewBox="0 0 150 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,12 +60,10 @@
       </div>
       <!-- logo - end -->
 
-      <!-- nav - start (hidden lg:flex を一旦削除。まずはPC画面で作る)-->
-      <!-- MEMO: gap-12 削除 if分岐ごとによってアイコン配置が異なるので-->
+      <!-- nav - start -->
       <nav class=" flex">
 
-    <%# MEMO:管理者はPCでしかログインしないのでモバイル対応不要。全体のデザイン（アイコン→テキスト、背景色）を変更しても良いかも %>
-        <%# 管理者がログインしてる場合 pt-6で無理やり高さ調整(PC画面)%>
+        <%# 管理者がログインしてる場合 %>
         <% if admin_signed_in? %>
           
           <%# Home アイコン %>
