@@ -2,7 +2,7 @@
 
 class PagesController < ApplicationController
   def home
-    @products = products_in_descending
+    @products = products_in_ascending
   end
 
   private
