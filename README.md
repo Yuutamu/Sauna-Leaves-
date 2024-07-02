@@ -56,25 +56,26 @@ Sidekiq 選定理由：他サービスよりもメンテナンスがされてる
 - [Google icons](https://fonts.google.com/icons)
 - [Heroicons](https://heroicons.com/)
 
+### Docker
+以下の方のdockerを利用して作成しております。（一般的なRailsアプリケーションのためのDocker）
+https://github.com/nickjj/docker-rails-example
+
 ## 動かし方
 注文するには、StripeのCLIをdocker上で立ち上げる必要があります。
 （dockerfile でアクセス等を記載しておけば必要なし。）
 
-以下のdockerを利用して作成しております。
-https://github.com/nickjj/docker-rails-example
 
 # 今後、特に手を加えたい箇所
 ## UI周り
 - カートUI
 - SVGアイコンの修正
-- 注文後のサンクスページ
 - Stripe のプランアップグレードして独自の決済ページ開発したい（UI・UX向上の為）
 - ダークモードUIの実装
 
 ## バックエンド
-- Stripe のプランアップグレードして注文時の配送日指定等の部分を実装したい
+- Stripe のプランアップグレードして注文時の配送日指定等の部分
 - 商品に関するDB構造のテコ入れ（ブランド、商品カテゴリ等を追加）
-- 上記の商品カテゴリに対しする検索機能の導入
+- 上記の商品カテゴリに対する検索機能の導入
 
 ## その他
 - Magagine としてテントサウナに関するWebメディアを作成予定なので、商品詳細ページ等へのリンクの設置と記事作成

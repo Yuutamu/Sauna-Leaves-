@@ -9,7 +9,7 @@ class Customer::SessionsController < Devise::SessionsController
     customer = Customer.find_by(email: params[:customer][:email])
     return unless customer # 早期リターン（customer か否か）
 
-    # メモ：active_for_authentication? devise.gem デフォルトのものを上書き済み
+    # MEMO：active_for_authentication? devise.gem デフォルトのものを上書き済み
     return if customer.valid_password?(params[:customer][:password]) && customer.active_for_authentication?
 
     alert_message = if customer.status == 'withdrawn'

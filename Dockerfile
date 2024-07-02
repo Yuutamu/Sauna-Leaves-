@@ -1,16 +1,14 @@
 # ベースイメージと基本設定
 FROM ruby:3.3.0-slim-bookworm AS assets
-# LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
 
 WORKDIR /app
 
 ARG UID=1000
 ARG GID=1000
 
-# TODO: ハードコードしているので、後ほどセキュアにする
-# 
-ENV RAILS_MASTER_KEY=548b47f49851280a19e31c5f169b688a
-ENV SECRET_KEY_BASE=b14a3039f17d4cdbcc90e408b1a3835357871e8a7c835bd7a09ad00a6be16f2ca06ebd664f8287276d94f9c8456fcf0e7bec7521b63a2ca7a709cdf99e28f94b
+# 立ち上げ確認の場合は、以下の環境変数のみで確認可能
+# ENV RAILS_MASTER_KEY=yourkey
+# ENV SECRET_KEY_BASE=yourkey
 
 RUN bash -c "set -o pipefail && apt-get update \
   && apt-get install -y --no-install-recommends build-essential curl git libpq-dev \
