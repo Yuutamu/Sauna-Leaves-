@@ -72,27 +72,27 @@ https://github.com/nickjj/docker-rails-example
 
 | カートページ | 決済ページ |
 | ---- | ---- |
-| ![カートページ](![Cart_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/a1bc44e1-f405-4058-b840-0ab09e8bfd87))| ![決済ページ](![Payment_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/163c3263-7bde-4e58-abb6-4c9a74c80ee1)) |
+| ![Cart_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/a1bc44e1-f405-4058-b840-0ab09e8bfd87)| ![Payment_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/163c3263-7bde-4e58-abb6-4c9a74c80ee1) |
 | 敢えて、情報量を少なくすることで金額、数量等の間違えが無いようなUI設計 | Stripe webhook を用いて作成 |
 
 | 注文完了 | 注文履歴一覧 |
 | ---- | ---- |
-| ![注文完了](![Thanks_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/e7aa4e67-56b2-4be5-81f1-cd154549413b))| ![注文履歴一覧](![AllOrder_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/61231f7a-1465-485e-a83b-8133f82bdf15)) |
+| ![Thanks_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/e7aa4e67-56b2-4be5-81f1-cd154549413b)| ![AllOrder_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/61231f7a-1465-485e-a83b-8133f82bdf15) |
 | 同時に、注文完了メールを非同期で送信 | 過去の注文履歴を日時と共に一覧表示 |
 
 | 注文履歴詳細 | Sign Up |
 | ---- | ---- |
-| ![注文履歴詳細](![OrderDetail_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/32def142-cbfa-4043-9834-967aad43ea16))| ![SignUp](![SignUp_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/5d1ad1c4-5be5-4502-9ec2-02f90ac33b9e)) |
+| ![OrderDetail_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/32def142-cbfa-4043-9834-967aad43ea16)| ![SignUp_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/5d1ad1c4-5be5-4502-9ec2-02f90ac33b9e) |
 | OrderStatus より、商品の発送状況等の確認が可能。今後、配送伝票を連携予定 | 新規会員登録 |
 
 | SignIn | ユーザー情報編集 |
 | ---- | ---- |
-| ![SignIn](![SignIn_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/351b02df-a5db-430f-b94e-6a8d13c16f49))| ![ユーザー情報編集](![UserEdit_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/992b66c5-dd2c-4d0d-b0b7-02353df24c68)) |
+| ![SignIn_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/351b02df-a5db-430f-b94e-6a8d13c16f49)| ![UserEdit_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/992b66c5-dd2c-4d0d-b0b7-02353df24c68) |
 | 既存ユーザーログイン | ユーザー情報編集 |
 
 | 退会画面 |
 | ---- |
-| ![退会画面](![Withdraw_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/d11bcd42-eee0-4a53-90de-29fbf89bce30))|
+| ![Withdraw_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/d11bcd42-eee0-4a53-90de-29fbf89bce30) |
 | 分かりやすいUI。退会するとユーザーのステータスを更新 |
 
 
