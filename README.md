@@ -23,9 +23,6 @@ https://sauna-leaves.onrender.com/
   - 出荷/返送管理
   - 売上表示機能
 
-# 画面遷移図（figma）
-https://www.figma.com/design/BHzg3RYenNvqUUbCXc0Wze/SaunaLeaves_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=RXCxmitysttMdm3Q-1
-
 # 技術スタック
 
 ### 言語、フレームワーク
@@ -60,22 +57,25 @@ Sidekiq 選定理由：他サービスよりもメンテナンスがされてる
 以下の方のdockerを利用して作成しております。（一般的なRailsアプリケーションのためのDocker）
 https://github.com/nickjj/docker-rails-example
 
+# 画面遷移図
+| トップ画面 | 
+| ---- |
+| ![Top画面](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/2987dae1-48ab-4f2c-bd39-a06d8315a67a) |
+| ログインの有無により、ヘッダーメニューのアイコンが変更 |
+
+| 商品一覧 | 商品詳細 |
+| ---- | ---- |
+| ![商品一覧](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/97e86941-e678-447d-9aa2-3d9ee66d4963)| ![商品詳細](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/9862a88a-624d-48f6-920f-79982843756f) |
+| 金額、登録順によりソート可能 | 視認性重視のUI |
+
+
+
+
+
+figmaはこちら
+https://www.figma.com/design/BHzg3RYenNvqUUbCXc0Wze/SaunaLeaves_%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1&t=RXCxmitysttMdm3Q-1
+
 ## 動かし方
 注文するには、StripeのCLIをdocker上で立ち上げる必要があります。
 （dockerfile でアクセス等を記載しておけば必要なし。）
 
-
-# 今後、特に手を加えたい箇所
-## UI周り
-- カートUI
-- SVGアイコンの修正
-- Stripe のプランアップグレードして独自の決済ページ開発したい（UI・UX向上の為）
-- ダークモードUIの実装
-
-## バックエンド
-- Stripe のプランアップグレードして注文時の配送日指定等の部分
-- 商品に関するDB構造のテコ入れ（ブランド、商品カテゴリ等を追加）
-- 上記の商品カテゴリに対する検索機能の導入
-
-## その他
-- Magagine としてテントサウナに関するWebメディアを作成予定なので、商品詳細ページ等へのリンクの設置と記事作成
