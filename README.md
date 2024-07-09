@@ -58,6 +58,7 @@ Sidekiq 選定理由：他サービスよりもメンテナンスがされてる
 https://github.com/nickjj/docker-rails-example
 
 # 画面遷移図
+### エンドユーザー向け画面
 | トップ画面 | 
 | ---- |
 | ![Top画面](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/2987dae1-48ab-4f2c-bd39-a06d8315a67a) |
@@ -68,7 +69,7 @@ https://github.com/nickjj/docker-rails-example
 | 商品一覧 | 商品詳細 |
 | ---- | ---- |
 | ![商品一覧](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/97e86941-e678-447d-9aa2-3d9ee66d4963)| ![商品詳細](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/9862a88a-624d-48f6-920f-79982843756f) |
-| 金額、登録順によりソート可能。商品をカード化することでUXの向上 | 視認性重視のUI。残り在庫を表示。 |
+| 金額、登録順によりソート可能。商品をカード化することでUI/UXの向上 | 視認性重視のUI。残り在庫を表示。 |
 
 | カートページ | 決済ページ |
 | ---- | ---- |
@@ -93,8 +94,7 @@ https://github.com/nickjj/docker-rails-example
 | 退会画面 |
 | ---- |
 | ![Withdraw_Page](https://github.com/Yuutamu/Sauna-Leaves-forShare/assets/143495920/d11bcd42-eee0-4a53-90de-29fbf89bce30) |
-| 分かりやすいUI。退会するとユーザーのステータスを更新 |
-
+| 分かりやすいUIを意識。退会するとユーザーのステータスを更新 |
 
 
 figmaはこちら
@@ -103,4 +103,3 @@ https://www.figma.com/design/BHzg3RYenNvqUUbCXc0Wze/SaunaLeaves_%E7%94%BB%E9%9D%
 ## 動かし方
 注文するには、StripeのCLIをdocker上で立ち上げる必要があります。
 （dockerfile でアクセス等を記載しておけば必要なし。）
-
