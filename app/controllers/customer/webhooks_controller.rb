@@ -1,7 +1,7 @@
 # Stripe公式 エンドポイントのサンプル：https://dashboard.stripe.com/webhooks/create?endpoint_location=local
 
 class Customer::WebhooksController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token # MEMO:CSRFトークンの検証をスキップWebhookは外部からのリクエストであり、CSRFトークンを持っていないため
 
   def create
     playload = request.body.read

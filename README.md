@@ -57,6 +57,9 @@ Sidekiq 選定理由：他サービスよりもメンテナンスがされてる
 以下の方のdockerを利用して作成しております。（一般的なRailsアプリケーションのためのDocker）
 https://github.com/nickjj/docker-rails-example
 
+# インフラ構成
+![インフラ構成図](https://github.com/user-attachments/assets/8f320a15-f9ca-446f-acdb-8bb2d00f35bb)
+
 # 画面遷移図
 ### エンドユーザー向け画面
 | トップ画面 | 
